@@ -32,6 +32,11 @@
 
 <p>합이 M을 넘지 않는 카드 3장을 찾을 수 있는 경우만 입력으로 주어진다.</p>
 
+### 출력 
+
+ <p>첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.</p>
+
+
 
 
 
@@ -68,7 +73,19 @@ def factorial(n):
 
 print(factorial(10))
 ```
-### 출력 
 
- <p>첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.</p>
 
+3개의 조합 중 최대의 합을 찾는 함수
+```python
+def find_nearest_sum(card_list, target):
+    closest_sum = 0
+
+    for i in range(len(card_list)):
+        for j in range(i+1, len(card_list)):
+            for k in range(j+1, len(card_list)):
+                current_sum = card_list[i] + card_list[j] + card_list[k]
+                if current_sum <= target and current_sum > closest_sum:
+                    closest_sum = current_sum
+
+    return closest_sum
+```
